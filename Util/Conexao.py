@@ -9,8 +9,8 @@ class Conexao:
     @staticmethod
     def getConnection():
         try:
-            conn_str = 'DRIVER={SQL Server};SERVER=LAPTOP-BJQUB3C4\BD_CEOOP;DATABASE=CEOOP;'
-            return pyodbc.connect(conn_str)
+            conn = 'DRIVER={SQL Server};SERVER=LAPTOP-BJQUB3C4\BD_CEOOP;DATABASE=CEOOP;'
+            return pyodbc.connect(conn)
         except Exception as e:
             raise Exception(str(e))
 
