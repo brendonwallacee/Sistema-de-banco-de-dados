@@ -1,5 +1,6 @@
 from tkinter import *
-from tkinter import ttk
+from tkinter.ttk import *
+import customtkinter
 from Persistencia import ClientesDAO
  
 
@@ -42,33 +43,51 @@ class Application():
         menubar.add_cascade(label="Finança", menu=financeiro)
         self.root.config(menu=menubar)
                          
-    def frames(self): 
-        self.frame1()
-        self.frame2()
+    def cliente_frames(self): 
+        self.entradas_clientes()
+        # self.botoes_clientes()
         
-    def frame1(self):
-        self.frm1 = ttk.Frame(self.direct, padding=40)
-        self.frm1.pack(side=LEFT)
-        self.lnome = Label(self.frm1, text="Qual o medicamento que irá utilizar?")
-        self.lnome.grid(column=0, row=1)
-        self.tfnome = Entry(self.frm1, width=50)
-        self.tfnome.grid(column=0, row=2)
-        self.ltipo = Label(self.frm1, text="Qual o tipo de remedio?")
-        self.ltipo.grid(column=0, row=3)
-        self.tftipo = Entry(self.frm1, width=50)
-        self.tftipo.grid(column=0, row=4)
-        self.ldias = Label(self.frm1, text="Por quantos dias deverá tomar?")
-        self.ldias.grid(column=0, row=5)
-        self.tfdias = Entry(self.frm1, width=50)
-        self.tfdias.grid(column=0, row=6)
-        self.ltempo = Label(self.frm1, text="De quantas em quantas horas deverá tomar?")
-        self.ltempo.grid(column=0, row=7)
-        self.tftempo = Entry(self.frm1, width=50)
-        self.tftempo.grid(column=0, row=8)
+    def entradas_clientes(self):
+        frm1 = Frame(self.direct, padding=5)
+        frm1.grid(column=1, row=1)
+        frm2 = Frame(self.direct, padding=5)
+        frm2.grid(column=1, row=2)
+        frm3 = Frame(self.direct, padding=5)
+        frm3.grid(column=1, row=3)
+        frm4 = Frame(self.direct, padding=5)
+        frm4.grid(column=1, row=4)
+        self.lnome = Label(frm1, text="Nome:")
+        self.lnome.pack(side=LEFT)
+        self.tfnome = Entry(frm1, width=58)
+        self.tfnome.pack(side=LEFT)
+        self.ldias = Label(frm2, text="CPF ou RG:")
+        self.ldias.pack(side=LEFT)
+        self.tfdias = Entry(frm2, width=14)
+        self.tfdias.pack(side=LEFT)
+        self.ltipo = Label(frm2, text="Idade:")
+        self.ltipo.pack(side=LEFT)
+        self.tftipo = Entry(frm2, width=3)
+        self.tftipo.pack(side=LEFT)
+        self.ltempo = Label(frm2, text="Data de Nascimento:")
+        self.ltempo.pack(side=LEFT)
+        self.tftempo = Entry(frm2, width=10)
+        self.tftempo.pack(side=LEFT)
+        self.ltempo = Label(frm3, text="Endereço:")
+        self.ltempo.pack(side=LEFT)
+        self.tftempo = Entry(frm3, width=55)
+        self.tftempo.pack(side=LEFT)
+        self.ltempo = Label(frm4, text="Bairro:")
+        self.ltempo.pack(side=LEFT)
+        self.tftempo = Entry(frm4, width=23)
+        self.tftempo.pack(side=LEFT)
+        self.ltempo = Label(frm4, text="Cidade:")
+        self.ltempo.pack(side=LEFT)
+        self.tftempo = Entry(frm4, width=27)
+        self.tftempo.pack(side=LEFT)
 
-    def frame2(self):
-        self.frm2 = ttk.Frame(self.direct, padding=40)
-        self.frm2.pack(side=LEFT)
+    def botoes_clientes(self):
+        self.frm2 = Frame(self.direct, padding=40)
+        self.frm2.pack(side=BOTTOM)
         btreg = Button(self.frm2, text="Salvar", command=self.registro, width=20, height=2, borderwidth=2)
         btreg.grid(column=0, row=1, padx=10, pady=5)
 
@@ -83,7 +102,9 @@ class Application():
     
     def add_cliente(self):
         self.direct = Toplevel(self.root)
-        self.frames()
+        self.direct.title("Novo Cliente")
+        self.direct.focus_force()
+        self.cliente_frames()
 
     def faz_nada(self):
         pass
