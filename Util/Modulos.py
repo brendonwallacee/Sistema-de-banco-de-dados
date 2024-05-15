@@ -1,0 +1,3 @@
+
+from Beans import ReceitasBean
+

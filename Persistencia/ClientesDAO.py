@@ -1,7 +1,5 @@
-from Beans import ClientesBean
-from Persistencia import ClientesDAOListener
 from Util.Conexao import *
-
+from Persistencia.ClientesDAOListener import *
 
 class ClientesDAO(ClientesDAOListener):
     def __init__(self):
@@ -89,7 +87,7 @@ class ClientesDAO(ClientesDAOListener):
         for row in cursor.fetchall():
             ID = row[0]
             Nome = row[1]
-            Forma_PG = self.FormasPagamentoBean(ID, Nome)
+            Forma_PG = FormasPagamentoBean(ID, Nome)
             list.append(Forma_PG)
 
         Conexao.closeConnection(cursor)

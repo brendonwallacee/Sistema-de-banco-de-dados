@@ -1,6 +1,5 @@
 import pyodbc
 
-
 class Conexao:
     def _init_(self):
         pass

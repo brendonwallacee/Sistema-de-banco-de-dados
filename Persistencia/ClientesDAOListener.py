@@ -1,6 +1,7 @@
+from Util.Modulos import *
+from Beans import ClientesBean
+from Beans import FormasPagamentoBean
 from typing import List
-from Beans.ClientesBean import ClientesBean
-from Beans.FormasPagamentoBean import FormasPagamentoBean
 
 class ClientesDAOListener:
     def atualizar(self, cliente: ClientesBean) -> None:
