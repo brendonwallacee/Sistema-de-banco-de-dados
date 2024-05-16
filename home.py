@@ -45,21 +45,27 @@ class Application():
                          
     def cliente_frames(self): 
         self.entradas_clientes()
-        # self.botoes_clientes()
+        self.botoes_clientes()
         
+       
     def entradas_clientes(self):
-        frm1 = Frame(self.direct, padding=5)
+        self.frm_in = Frame(self.direct, padding=20)
+        self.frm_in.grid(column=0, row= 0)
+
+        frm1 = Frame(self.frm_in, padding=5)
         frm1.grid(column=1, row=1)
-        frm2 = Frame(self.direct, padding=5)
+        frm2 = Frame(self.frm_in, padding=5)
         frm2.grid(column=1, row=2)
-        frm3 = Frame(self.direct, padding=5)
+        frm3 = Frame(self.frm_in, padding=5)
         frm3.grid(column=1, row=3)
-        frm4 = Frame(self.direct, padding=5)
+        frm4 = Frame(self.frm_in, padding=5)
         frm4.grid(column=1, row=4)
+
         self.lnome = Label(frm1, text="Nome:")
         self.lnome.pack(side=LEFT)
         self.tfnome = Entry(frm1, width=58)
         self.tfnome.pack(side=LEFT)
+
         self.ldias = Label(frm2, text="CPF ou RG:")
         self.ldias.pack(side=LEFT)
         self.tfdias = Entry(frm2, width=14)
@@ -72,10 +78,12 @@ class Application():
         self.ltempo.pack(side=LEFT)
         self.tftempo = Entry(frm2, width=10)
         self.tftempo.pack(side=LEFT)
+
         self.ltempo = Label(frm3, text="Endereço:")
         self.ltempo.pack(side=LEFT)
         self.tftempo = Entry(frm3, width=55)
         self.tftempo.pack(side=LEFT)
+
         self.ltempo = Label(frm4, text="Bairro:")
         self.ltempo.pack(side=LEFT)
         self.tftempo = Entry(frm4, width=23)
@@ -86,25 +94,25 @@ class Application():
         self.tftempo.pack(side=LEFT)
 
     def botoes_clientes(self):
-        self.frm2 = Frame(self.direct, padding=40)
-        self.frm2.pack(side=BOTTOM)
-        btreg = Button(self.frm2, text="Salvar", command=self.registro, width=20, height=2, borderwidth=2)
-        btreg.grid(column=0, row=1, padx=10, pady=5)
+        self.frm_bt = Frame(self.direct, padding=10)
+        self.frm_bt.grid(column=0, row=1)
 
-        btalarm = Button(self.frm2, text="Registrar Alarme", command=self.alarme, width=20, height=2)
-        btalarm.grid(column=0, row=2, padx=10, pady=5)
+        self.btalarm = Button(self.frm_bt, text="Adicionar Cliente", command=self.alarme, width=15)
+        self.btalarm.pack(side=LEFT)
 
-        saia = Button(self.frm2, text="Sair", command=self.root.destroy, width=20, height=2)
-        saia.grid(column=0, row=3, padx=10, pady=5)
+        self.saia = Button(self.frm_bt, text="Sair", command=self.root.destroy, width=20)
+        self.saia.pack(side="CENTER")
 
-        mostra = Button(self.frm2, text="Mostrar Entrada", command=self.entrada, width=20, height=2, borderwidth=2)
-        mostra.grid(column=0, row=4, padx=10, pady=5)
+        self.mostra = Button(self.frm_bt, text="Mostrar Entrada", command=self.entrada, width=20, borderwidth=2)
+        self.mostra.pack(side="RIGHT")
     
     def add_cliente(self):
         self.direct = Toplevel(self.root)
         self.direct.title("Novo Cliente")
         self.direct.focus_force()
         self.cliente_frames()
+        btreg = Button(self.frm_bt, text="Salvar", command=self.registro, width=20, height=2, borderwidth=2)
+        btreg.grid(column=0, row=0, padx=10, pady=5)
 
     def faz_nada(self):
         pass

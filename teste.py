@@ -1,29 +1,34 @@
+import tkinter as tk
 
-# Importing tkinter module
-from tkinter import * 
-from tkinter.ttk import *
- 
-# creating Tk window
-master = Tk()
- 
-# setting geometry of tk window
-master.geometry("200x200")
- 
-# button widget
-b2 = Button(master, text = "GFG")
-b2.pack(fill = X, expand = True, ipady = 10)
- 
-# button widget
-b1 = Button(master, text = "Click me !")
- 
-# This is where b1 is placed inside b2 with in_ option
-b1.place(in_= b2, relx = 0.5, rely = 0.5, anchor = NE)
- 
-# label widget
-l = Label(master, text = "I'm a Label")
-l.place(anchor = NW)
- 
-# infinite loop which is required to
-# run tkinter program infinitely
-# until an interrupt occurs
-mainloop()
+def button_clicked():
+    print("Button clicked!")
+
+root = tk.Tk()
+
+# Creating a button with specified options
+button = tk.Button(root, 
+                   text="Click Me", 
+                   command=button_clicked,
+                   activebackground="blue", 
+                   activeforeground="white",
+                   anchor="center",
+                   bd=3,
+                   bg="lightgray",
+                   cursor="hand2",
+                   disabledforeground="gray",
+                   fg="black",
+                   font=("Arial", 12),
+                   height=2,
+                   highlightbackground="black",
+                   highlightcolor="green",
+                   highlightthickness=2,
+                   justify="center",
+                   overrelief="raised",
+                   padx=10,
+                   pady=5,
+                   width=15,
+                   wraplength=100)
+
+button.pack(padx=20, pady=20)
+
+root.mainloop()
